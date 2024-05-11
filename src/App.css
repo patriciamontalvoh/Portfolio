@@ -1,376 +1,90 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+  font-family: Arial, sans-serif;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
-.section-line{
-  border-bottom: .075rem solid #000000;
-  width: 100%;
-  margin-top: 1%;
-  margin-bottom: 0%;
-  align-self: center;
+.title {
+  position: absolute;
+  top: 2%;
+  left: 10%;
+  font-size: 18px;
+  font-weight: lighter;
+  color: #a8a8a8;
 }
 
-.subsection-line-01{
-  border-bottom: .075rem solid #000000;
-  width: 100%;
-}
-.subsection-line-02{
-  border-bottom: .05rem solid #000000;
-  width: 100%;
-}
-
-.subsection-line-03{
-  border-bottom: .05rem solid rgba(0,0,0,0.25);
-  width: 100%;
-}
-
-.section-line-white{
-  border-bottom: .05rem solid white;
-  width: 100%;
-  margin: 2%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.vertical-line {
-  width: 5px; 
-  color: #000;
-  height: 100%;
-}
-
-
-.App {
-  font-family: Times New Roman;
-  margin: 3%;
+.navbar {
+  position: absolute;
+  top: 3%;
+  right: 10%; /* Adjust the left position as needed */
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar a {
+  padding: 10px;
+  margin-right: 20px; /* Adjust the spacing between links as needed */
+  text-decoration: none;
+  color: #333;
+}
+
+.navbar a.active {
+  font-weight: bold;
+  color: blue; /* Change to your preferred color */
+}
+
+/* Custom cursor styles */
+body {
+  cursor:default;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* Project */
+/* Add or adjust styles as needed */
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  overflow-x: hidden;
-  padding-top: 120px;
+}
 
-  .sorting-filtering-page{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1%;
-    flex-wrap: wrap;
-  }
+.project-link {
+  text-decoration: none;
+  color: inherit;
+}
 
-  .filters-button {
-    padding: 5px 10px;
-    color: black;
-    border-radius: 15px;
-    margin-top: 2.5%;
-    margin-bottom: 2.5%;
-    border: 0;
-    font-size: 1.1em;
-  }
+.left-margin-container{
+ margin-left: 25%;
+  width: 75%;
+}
 
-  .filters-button:hover {
-    background-color: #ccc;
-    color: #222;
-    }
+.description{
+margin-top: 5%;
+font-size: 3rem;
+font-weight: 100;
+ }
 
-  .filters-button:active {
-    background-color: blue;
-    color: white;
-  }
+ .description-italic{
+  margin-top: 5%;
+  font-size: 3rem;
+  font-weight: 100;
+  font-style: italic;
+   }
 
-  .filter-label {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #ddd;
-    color: #555;
-    border-radius: 15px;
-    cursor: pointer;
-  }
-
-   .clear{
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
-    border-radius: 15px;
-    border: 0;
-    font-size: 1.1em;
-  }
-
-  .clear:hover{
-    background-color: black;
-    font-weight: bold;
-  }
-
-  .clear:active{
-    background-color: blue;
-    font-weight: bold;
-  }
-
-  .filter-label:hover {
-    background-color: #ccc;
-    color: #222;
-  }
-
-  .sort-btn {
-    margin-top: 10px;
-    padding: 5px 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
-  }
-  
-  .sort-btn:hover {
-    background-color: #e8e8e8;
-  }
-
-  .menu-page{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    position:fixed;
-    top: 0;
-    padding-top: 3%;
-    width: 100%;
-    background-color: white;
-    z-index: 1000; 
-
-  }
-  
-  .main-page{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start; 
-  }
-  
-  .filters-page{
-    justify-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    margin: 1%;
-    margin-top: 3%;
-    max-width: 13%;
-    left: 2%;
-    height: auto;
-    max-height: calc(100vh - 30vh);
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 1%;
-  }
-
-  .items-page{
-    margin-top: 3%;
-    margin-right: 15%;
-    margin-left: 15%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    overflow-x: visible;
-  }
-
-  .items-page.in-wishlist {
-    border: 2px solid #FFD700; 
-    padding: 2px;
-  }
-
-  .cart-page{
-    display: flex;
-    flex-direction: column;
-    margin: 0%;
-    position: fixed;
-    margin-top: 3%;
-    max-width: 13%;
-    right: 3%; 
-    max-height: calc(100vh - 30vh);
-    height: auto;
-    overflow-y:scroll;
-    overflow-x: hidden;
-    }
-
-  .art-item.in-wishlist {
-    border: 2px solid #ff4500; 
-    position: relative;
-  }
-  
-  .notification-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-  
-  .wishlist-notification {
-    width: 25%;
-    height: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 219, 209, 0.85);
-    color: black;
-    font-size: 1.5rem;
-    padding: 5%;
-    border-radius: 10px;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-
-  .cart-notification {
-    width: 25%;
-    height: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(205, 218, 255, 0.85);
-    color: black;
-    font-size: 1.5rem;
-    padding: 5%;
-    border-radius: 10px;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .no-results-container {
-    width: 40%;
-    height: auto;
-    position: fixed;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    font-size: 1.5rem;
-    padding: 10%;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .remove-notification {
-    width: 25%;
-    height: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.85);
-    color: black;
-    font-size: 1.5rem;
-    padding: 5%;
-    border-radius: 10px;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .notifiaction-message{
-    text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000;
-        font-size: 2rem;
-        margin-bottom: 5%;
-  }
-
-
-  .wishlist-notification button {
-    background: transparent;
-    border: none;
-    color: blue;
-    margin-top: 10%;
-    font-size: 1rem;
-    margin-bottom: -8%;
-  }
-
-  .cart-notification button {
-    background: transparent;
-    border: none;
-    color: blue;
-    margin-top: 10%;
-    font-size: 1rem;
-    margin-bottom: -8%;
-  }
-
-  .remove-notification button {
-    background: transparent;
-    border: none;
-    color: blue;
-    margin-top: 10%;
-    font-size: 1rem;
-    margin-bottom: -8%;
-  }
-
-  .item-label-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #e9e9e9; 
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 15px;
-  }
-
-  .item-label {
-    margin-right: 10px;
-  }
-
-  .remove-item-btn{
-    height: 30px;
-    width: 30px;
-    padding: 5px 10px;
-    color: black;
-    background-color: #d3d3d3;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  .remove-item-btn:hover {
-    background-color: #b2b2b2; 
-    color: #222; 
-  }
-
-  .remove-item-btn:active {
-    background-color: blue; 
-    color: white; 
-  }
-
-  .filters-button.active{
-    border: 2px solid blue;
-  }
-
-} 
-
+   .extra-spacing{
+    margin-top: 5%;
+     }

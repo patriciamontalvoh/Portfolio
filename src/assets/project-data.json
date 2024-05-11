@@ -1,0 +1,50 @@
+[
+{
+  "id": 1,
+  "number": "PROJECT 01",
+  "title": "Zest Cart Upgrade",
+  "year": "2024",
+  "mainImage":"images/ZestS.png", 
+  "description": "Enhancing e-commerce with advanced shopping cart capabilities for corporate gifting."
+},
+  {
+    "id": 2, 
+    "number": "PROJECT 02",
+    "title": "Development: Online art platform", 
+    "year": "2024",
+    "mainImage":"images/Development.jpg", 
+    "description": "Full development of an online art platform to discover, sort and filter artworks."
+  },
+  {
+    "id": 3, 
+    "number": "PROJECT 03",
+    "title": "Responsive redesign",  
+    "year": "2024", 
+    "mainImage":"images/Resp.png", 
+    "description": "Redesign of the Rhode Island Department of Health Home page: Streamlining Public Health Information Access."
+  },
+  {
+    "id": 4, 
+    "number": "PROJECT 04",
+    "title": "Tantum",
+    "year": "2023",
+    "mainImage":"images/TantumT.png", 
+    "description": "Reconnecting in a distance world through digital and phisical interaction."
+  },
+  {
+    "id": 5, 
+    "number": "PROJECT 05",
+    "title": "Repill",
+    "year": "2021", 
+    "mainImage":"images/Repill.png", 
+    "description": "Service Design for Pharmaceutical Sustainability: Reduce Reverse Redesign."
+  },
+  {
+    "id": 6, 
+    "number": "PROJECT 06",
+    "title": "CU",
+    "year": "2021", 
+    "mainImage":"images/Cu.png", 
+    "description": "Innovative mobility solution for urban environments and young generations."
+  }
+]
