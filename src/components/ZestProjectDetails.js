@@ -57,7 +57,7 @@ This iterative process ensured that the new feature met both user expectations a
 
 <p class="section-title"> Part 1: <strong> Process </strong> </p>
 <div class="title-line"> </div> 
-<img src="/images/ZestProcess.png" alt="Zest Project Process" style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
+<img src="/images/Zest-Process.png" alt="Zest Project Process" style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
 
 <div class="f"> </div>  
 <div class="section-line"> </div> 
