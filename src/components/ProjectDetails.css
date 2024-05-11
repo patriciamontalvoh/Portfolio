@@ -291,9 +291,9 @@ td{
 /* Footer */ 
 .footer{
   height: 100px;
-  width: 150%;
+  width: 140%;
   align-self: center;
-  margin-bottom: -50%;
+  margin-bottom: -20%;
   margin-left: -20%;
   margin-top: 3%;
   background-color: #000;
