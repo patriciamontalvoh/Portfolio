@@ -1,9 +1,16 @@
 import React from 'react';
 import './ProjectDetails.css';
+import './ProjectDetails.css';
+
 
 function About() {
   return (
     <div>
+
+<div className="project-name">
+    <p> Portfolio: <strong>Patricia Montalvo Hernandez</strong>  </p>
+    </div>
+
       <h1>About</h1>
       <div class="title-line"> </div>
       <div class="left-margin-container">

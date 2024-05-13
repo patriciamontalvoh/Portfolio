@@ -4,6 +4,8 @@ body {
   margin-bottom: 10%;
   margin-left: 10%;
   margin-right: 10%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .title {
@@ -15,13 +17,25 @@ body {
   color: #a8a8a8;
 }
 
+
 .navbar {
-  position: absolute;
-  top: 3%;
-  right: 10%; /* Adjust the left position as needed */
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: white; 
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  align-items: right;
+  padding: 1% 1%;
+  z-index: 999; 
+  border-bottom: .15rem solid #000000;
+
 }
+
+.document{
+  border: 1px solid #d9d9d9;
+  filter: drop-shadow(5px 5px 3px rgb(183, 183, 183));}
 
 .navbar a {
   padding: 10px;

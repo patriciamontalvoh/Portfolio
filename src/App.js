@@ -8,8 +8,6 @@ import CV from './components/CV';
 import ZestProjectDetails from './components/ZestProjectDetails'; 
 import DevProjectDetails from './components/DevProjectDetails'; 
 import RhodeProjectDetails from './components/RhodeProjectDetails'; 
-import RepillProjectDetails from './components/RepillProjectDetails'; 
-import CUProjectDetails from './components/cuProjectDetails'; 
 import './App.css';
 import ProjectData from "./assets/project-data.json";
 
@@ -17,12 +15,13 @@ ProjectData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
 });
 
+
 function App() {
 
   return (
+
     <Router>
       <div>
-        <h1 className="title"></h1>
         <nav className="navbar">
           <NavLink to="/" end className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
           <NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""}>Projects</NavLink>
@@ -30,7 +29,7 @@ function App() {
           <NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""}>Contact</NavLink>
           <NavLink to="/cv" className={({ isActive }) => isActive ? "active" : ""}>CV</NavLink>
         </nav>
-      </div>
+        </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
@@ -40,11 +39,8 @@ function App() {
         <Route path="/projects/ZestProjectDetails" element={<ZestProjectDetails />} />
         <Route path="/projects/DevProjectDetails" element={<DevProjectDetails />} />
         <Route path="/projects/RhodeProjectDetails" element={<RhodeProjectDetails />} />
-        <Route path="/projects/RepillProjectDetails" element={<RepillProjectDetails />} />
-        <Route path="/projects/cuProjectDetails" element={<cuProjectDetails />} />
       </Routes>
     </Router>
-    
   );
 }
 export default App;

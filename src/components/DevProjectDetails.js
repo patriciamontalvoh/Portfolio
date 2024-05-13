@@ -1,392 +1,246 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProjectDetails.css';
+import { NavLink } from 'react-router-dom'; 
 
-function DevProjectDetails() {
+const sentences = [
+"Selected and analyzed three different online art marketplaces, paying close attention to their aggregator functions, their filtering functions, their sorting functions, and their overall design.", 
+"Utilized design thinking and user-centered design methodologies to create initial design layout and identify key needed functionalities. ",
+"Developed the frontend using React, paying attention to the previously defined functionalities, design and structuring. "
+  ];
+  
+  const images = [
+    "/images/ArtPhase01.png",
+    "/images/ArtPhase02.png",
+    "/images/ArtPhase03.png",
+  ];
+
+  const buttonDescription = [
+    "Competitive Analysis",
+    "Functionality assesment", 
+    "App development and implementation",
+  ];
+
+  const imageFooter = [
+    "Analyzing competitors",
+    "Final features selection",
+    "Final app development",
+  ];
+
+  const buttonLabels = ['PHASE 01', 'PHASE 02', 'PHASE 03']; 
+
+
+function ZestProjectDetails() {
+    const [activeIndex, setActiveIndex] = useState(0); 
+  
+
+    const handleKeyDown = (event) => {
+        if (event.key === "ArrowRight") {
+          setActiveIndex((prevIndex) => (prevIndex < sentences.length - 1 ? prevIndex + 1 : prevIndex));
+        } else if (event.key === "ArrowLeft") {
+          setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
+        }
+      };
+
+      useEffect(() => {
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+          };
+        }, []);
+      
+    const displayContent = (index) => {
+            setActiveIndex(index); 
+          };
+
+
   return (
-<div style={{}}>
-
-<div class="section-line"> </div> 
-      <p class="main-title"> Development: Online art platform</p>
-      <p class="main-subtitle"> Full development of an online art platform to discover, sort and filter artworks.</p>
-      <img src="/images/Development.jpg" alt="Zest Cart Upgrade" style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
+    <div style={{}}>
+    <div> <NavLink to="/projects" className="return-button">Return</NavLink></div>
+    <div className="project-name">
+    <p> Portfolio: <strong>Patricia Montalvo Hernandez</strong>  </p>
+    </div>
+            
+              <p class="main-title"> Development: Online art platform </p>
+              <p class="main-subtitle"> Full development of an online art platform to discover, sort and filter artworks.</p>
+              <img src="/images/Development.jpg" alt="Development: Online art platform" style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
      
       <section class="details">
             <div class="info-block">
                 <p><strong>Project</strong></p>
                 <div class="info-line"></div>
-                <p>2021 Philips Service Design Challenge</p>
-                <p>Duration: 9 months</p>
+                <p>2024 Development project for UX/UI course (CSCI1300 / Brown University). Duration of 3 weeks.</p>
             </div>
             <div class="info-block">
                 <p><strong>Team</strong></p>
                 <div class="info-line"></div>
-                <p>Teamwork</p>
-                <p>Teammates: Mariana Benitez, Dassin Ngopsi, Josep Villanueva</p>
+                <p>Individual project</p>
             </div>
             <div class="info-block">
             <p><strong>Personal Role</strong></p>
                 <div class="info-line"></div>
-                <p>Investigation, conceptualization, prototyping and mobile app development.</p>
+                <p>Full development</p>
             </div>
             <div class="info-block">
             <p><strong>Methodologies</strong></p>
                 <div class="info-line"></div>
-                <p>Research and analysis, design thinking, user-centered design, reverse logistics, prototyping and testing.</p>
+                <p>Market research, design thinking, concept ideation, programming, refinement.</p>
             </div>
             <div class="info-block">
             <p><strong>Software Used</strong></p>
                 <div class="info-line"></div>
-                <p>Miro, Figma, Keysthot 9, Photoshop, InDesign and Illustrator.</p>
+                <p>Figma, Github, React, Vercel.</p>
             </div>
         </section>
-      
-<div class="section-line"> </div> 
+
+<div class="black-section"> 
+<div class="black-section-content"> 
 <p class="section-title"><strong> Overview</strong> </p>
-<div class="title-line"> </div>
-<p class="section-text"> Through this assignment, a functional aggregator interface was created using React. The interface created consists of an <strong> online art platform</strong>, were users can <strong> discover, filter and sort </strong> different types of paintings. To begin the assignment, a <strong> competitive analysis </strong> between competitor companies was conducted in order to analyze strengths and weaknesses in their design elements. From said analysis, the design factors to implement where decided and integrated into the designed interface. <strong> The final front end development offers an intuitive user experience with a responsive navigation and a clear layout to emphasizes the artwork. </strong> </p>
-
-<div class="f"> </div>  
-<div class="section-line"> </div> 
-<div class="f"> </div>  
-<p class="section-title"> Part 1: <strong> Competitive Analysis </strong> </p>
 <div class="title-line"> </div> 
-<p class="section-text"> In order to conduct the competitive analysis, <strong>three different online art marketplaces </strong> were selected and analyzed, paying close attention to their aggregator functions, their filtering functions, their sorting functions, and their overall design. The interfaces analyzed were: <strong> Artsy, Saatchi art and Singulart.</strong>  The table below contains a summary of the analysis. </p>
-<div class="f"> </div>  
-<div class="f"> </div>  
-<p class="section-subtitle"> <strong> Comparison Chart: </strong> </p>  
-
-<table>
-  <tr>
-    <th> </th>
-    <th>Artsy  <a href="https://www.singulart.com/en/" class="link-text">Link</a></th>
-    <th>Saatchi art     <a href="https://www.saatchiart.com" class="link-text">Link</a> </th>
-    <th>Singulart     <a href="https://www.singulart.com/en/" class="link-text">Link</a>
-    </th>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Design</strong></td>
-    <td class="good"><strong> Good: </strong> User-friendly, aesthetically pleasing.</td>
-    <td class="poor"><strong>Poor:</strong>  Slightly cluttered.</td>
-    <td class="bad"><strong>Bad:</strong> Cluttered.</td>
-  </tr>
-  <tr>
-   <td class="factor"> <strong>Information</strong></td>
-    <td class="good"> <strong> Good: </strong> Basic, with more details when entered art.</td>
-    <td class="good"> <strong>Good: </strong> Basic, with more details when entered art.</td>
-    <td class="poor"><strong>Poor:</strong> Slightly unorganized, lacking structure.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Filters</strong></td>
-    <td class="good"><strong> Good: </strong> Comprehensive filters </td>
-    <td class="good"><strong> Good: </strong>Comprehensive filters </td>
-    <td class="good"><strong> Good: </strong> Comprehensive filters</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Sorting</strong></td>
-    <td class="good"><strong> Good: </strong> Comprehensive sorting.</td>
-    <td class="poor"><strong>Poor:</strong>  Limited to date and price.</td>
-    <td class="poor"><strong>Poor:</strong> Limited to date and price.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Review aggregations</strong></td>
-    <td class="good"><strong> Good: </strong> Add to sub-list option.</td>
-    <td class="poor"><strong>Poor:</strong>  Limited accessibility.</td>
-    <td class="poor"><strong>Poor:</strong>  Limited accessibility.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Remove aggregations</strong></td>
-    <td class="poor"><strong>Poor:</strong>  Limited accessibility.</td>
-    <td class="poor"><strong>Poor:</strong>  Limited accessibility.</td>
-    <td class="bad"><strong>Bad:</strong>  Limited accessibility.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Feedback received</strong></td>
-    <td class="poor"><strong>Poor:</strong>  Limited feedback.</td>
-    <td class="poor"><strong>Poor:</strong> Limited feedback.</td>
-    <td class="poor"><strong>Poor:</strong> Limited feedback.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Related sort and filter</strong></td>
-    <td class="good"><strong> Good: </strong> Accessible and compatible.</td>
-    <td class="good"><strong> Good: </strong> Accessible and compatible.</td>
-    <td class="good"><strong> Good: </strong> Accessible and compatible.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Move from Wishlist to Cart</strong></td>
-    <td class="poor"><strong>Poor:</strong>  Slightly hidden.</td>
-    <td class="poor"><strong>Poor:</strong>  Slightly hidden.</td>
-    <td class="poor"><strong>Poor:</strong>  Slightly hidden.</td>
-  </tr>
-  <tr>
-    <td class="factor"><strong>Move from Cart to Wishlist</strong></td>
-    <td class="bad"><strong>Bad:</strong>  No option.</td>
-    <td class="poor"><strong>Poor:</strong>  Limited accessibility.</td>
-    <td class="bad"><strong>Bad:</strong>  No option.</td>
-  </tr>
-</table>
-<div class="f"> </div>  
-<div class="f"> </div>  
-
-<p class="section-subtitle"> <strong>Insights:   </strong>  </p>
-<div class="f"> </div>  
-  <div class="horizontal-container-insight">
-    <div class="horizontal-box-insight">
-<p class="section-text-blue"> <strong> • Most successful factors:    </strong>  </p>
-<div class="extra-margin-container">
-  <div class="f"> </div>  
-  <p class="section-text"> o Receiving <strong> continuous feedback </strong> from interaction is needed for the user to know and <strong> remember their previous decisions and selections.</strong>  </p>
-  <div class="f"> </div>  
-  <p class="section-text"> o <strong> Clear and organized </strong> designs are not only aesthetically pleasing, but also enhance the <strong>  user experience and efficiency. </strong> </p>
-  <div class="f"> </div>  
-  <p class="section-text"> o Having a <strong>clear accessibility to buttons </strong> (such as filters and sorting labels) improves the user experience in comparison to those more <strong>“hidden”. </strong> </p>
-</div>  
-</div>  
-<div class="horizontal-box-insight">
-<p class="section-text-blue"> <strong> • Least successful factors:   </strong>  </p>
-<div class="extra-margin-container-insight">
-  <div class="f"> </div>  
-  <p class="section-text"> o Too much <strong>unneeded information displayed </strong>(could lead to an inefficient user navigation).   </p>
-<div class="f"> </div>  
-<p class="section-text"> o <strong>Limited access </strong> to moving or removing aggregated items (not providing a user-centric design).  </p>
-<div class="f"> </div>  
-<p class="section-text"> o <strong>Lacking a consistent structure </strong> (again, could lead to an inefficient or not intuitive user navigation).   </p>
-
-</div>  
-</div>  
-</div>  
-
-<div class="f"> </div>  
-<div class="section-line"> </div> 
-<div class="f"> </div>  
-<p class="section-title"> Part 2: <strong> Functionality </strong> </p>
-<div class="title-line"> </div> 
-<p class="section-subtitle"> <strong>Theme:   </strong> Online art platform  </p>
-<div class="f"> </div>  
-<p class="section-text"> <strong>Intention:    </strong> Intuitive and easy way to <strong>discover, filter and sort </strong>different types of paintings. Additionally, paintings can be added, moved and removed from the user's Cart and Wishlist.  </p>
-<div class="f"> </div>   
-<p class="section-subtitle"> <strong>Incorporated features:  </strong>  </p>
-<div class="f"> </div>  
-<div class="extra-margin-container">
-<p class="section-text"> <strong>•	Filtering categories </strong> <em>(which can be added simultaneously): </em> </p>
-<div class="m"> </div> 
-<div class="extra-margin-container">
-<p class="section-text"> o	By medium <span class="section-text-blue">  <em>(Oil / Acrylic / Pencil) </em> </span></p>
-<p class="section-text"> o	By material <span class="section-text-blue"> <em>(Canvas / Board / Paper) </em> </span></p>
-<p class="section-text"> o	By author  <span class="section-text-blue"> <em>(Miriam Dema / Bea Aigualbella / Klas Ernflo / Marcos Isomat / Naoki Kawano) </em></span> </p>
+<section class="details">
+<div class="info-block">
+<p class="white-title"><em>Development of an intuitive online art platform, enabling users to <strong>discover, filter, and sort</strong>various artworks efficiently. </em> </p>
+</div>
+<div class="info-block">
+<p class="white-title"><strong> Objective </strong> </p>
+<div class="info-line"></div>
+<p> To create a user-friendly digital platform that simplifies the <strong>discovery and management</strong> of artworks through effective sorting, filtering, and aggregating functionalities.</p>
+</div>
+<div class="info-block">
+<p class="white-title"> <strong> Challenge </strong> </p> 
+<div class="info-line"></div>
+<p> To design an aggregator interface that seamlessly integrates comprehensive <strong>filter and sort capabilities </strong>while maintaining a clean and appealing aesthetic.</p>
+</div>
+<div class="info-block-wide">
+<p class="white-title"> <strong>Development</strong> </p> 
+<div class="info-line"></div>
+<p>Through this assignment, a functional aggregator interface was created using React. The interface created consists of an <strong>online art platform</strong>, where users can <strong>discover, filter and sort</strong> different types of paintings. To begin the assignment, a <strong> competitive analysis </strong> between competitor companies was conducted in order to analyze strengths and weaknesses in their design elements. From said analysis, the design factors to implement where decided and integrated into the designed interface. <strong> The final front end development offers an intuitive user experience with a responsive navigation and a clear layout to emphasizes the artwork.</strong> </p>
+</div>
+</section>
 </div> 
-<div class="f"> </div>  
-<p class="section-text"> <strong>•	Sorting categories  </strong> <em>(which cannot be added simultaneously, if one is applied the other one cannot be):   </em> </p>
-<div class="m"> </div> 
-<div class="extra-margin-container">
-<p class="section-text"> o	By price  <span class="section-text-blue">  <em>(High to Low / Low to High) </em></span> </p>
-<p class="section-text"> o	By size <span class="section-text-blue">  <em>(Large to Small / Small to Large) </em> </span></p>
 </div> 
-<div class="f"> </div>  
-<p class="section-text"> <strong>•	Aggregators </strong> </p>
-<div class="m"> </div>  
-<div class="extra-margin-container">
-<p class="section-text"> o Cart Items <span class="section-text-blue">  <em> (Add to Cart / Remove from Cart / Move from Wishlist to Cart)</em> </span></p>
-<p class="section-text"> o Wishlist Items <span class="section-text-blue">  <em> (Add to Wishlist / Remove from Wishlist / Move from Cart to Wishlist)</em> </span></p>
-<p class="section-text"> o Removals <span class="section-text-blue">  <em>(Clear all (filters and sorting) / Clear Cart / Clear Wishlist)</em> </span></p>
 
-  </div>
-  <div class="f"> </div>  
 
-<p class="section-text"> <strong>•	Notifications and labels to keep track of status </strong> </p>
-<div class="m"> </div>  
+<p class="section-title"> Part 1: <strong> Process </strong> </p>
+<div class="title-line"> </div> 
 
-</div>  
+<div className="container">
+<div className="buttonContainer">
+{buttonLabels.map((label,index) => (
+          <button key={index} className={`choice-button ${index === activeIndex ? 'active' : ''}`} onClick={() => displayContent(index)}>
+              <p>  <strong> {label} </strong></p>
+            <div class="info-line"></div>
+            <p class="button-description">{buttonDescription[index]}</p>
+          </button>
+        ))}
+        </div>
+      {activeIndex !== -1 && (<>
+          <p id="textDisplay" class="button-description-02">{sentences[activeIndex]}</p>
+          <img id="imageDisplay" src={images[activeIndex]} alt={`Display for Button ${activeIndex + 1}`} style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
+          <p id="textDisplay" class="button-description-03">{imageFooter[activeIndex]}</p>
+        </>
+      )}
+    </div>
+
 
 <div class="f"> </div>  
 <div class="section-line"> </div> 
 <div class="f"> </div>  
-<p class="section-title"> Part 3: <strong> Implementation </strong> </p>
+
+<p class="section-title"> Part 2: <strong> The solution in more depth</strong> </p>
 <div class="title-line"> </div> 
-
-
-<p class="section-subtitle"> <strong>Final interface created: </strong> </p>
-<div class="m"> </div>  
-<img class="imageItem" alt="Item 1" src="/images/final-interface.png"/>
-<div class="f"> </div>  
-
-
-<p class="section-subtitle"> <strong>Displayed items: </strong> </p>
-<div class="m"> </div>  
-<img class="imageItem" alt="Displayed Items" src="/images/displayed-items.png"/>
-
-<div class="f"> </div>  
-
-<p class="section-subtitle"> <strong>Individual items: </strong> </p>
-<div class="m"> </div>  
-
-<div class="horizontal-container">
-  <div class="horizontal-box">
-    <img class="imageItem-02" alt="Item 1" src="/images/cart-01.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 2" src="/images/cart-02.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 3" src="/images/cart-03.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 4" src="/images/cart-04.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 5" src="/images/cart-05.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 6" src="/images/cart-06.png"/>
-    </div>
-    </div>
-
-<div class="horizontal-container-02">
-  <div class="horizontal-box-02">
-      <p class="section-text"> Standard visualization </p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> Hover visualization, with more information displayed and options to aggregate item </p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> Add to Cart option</p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> Add to Wishlist option </p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> When in Wishlist, the item can be moved to the cart or removed from Wishlist <em>(no option to be in both)</em> </p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> When in Cart, the item can be moved to the Wishlist or removed from Cart <em>(no option to be in both)</em> </p>
-    </div>
-    </div>
-
-<div class="f"> </div>  
-
-<p class="section-subtitle"> <strong>Filters and sorting: </strong> </p>
-<div class="m"> </div>  
-
-<div class="horizontal-container">
-  <div class="horizontal-box">
-    <img class="imageItem-02" alt="Item 1" src="/images/original.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 2" src="/images/filtered.png"/>
-    </div>
-    </div>
-
-<div class="horizontal-container-02">
-  <div class="horizontal-box-02">
-      <p class="section-text"> Original interface </p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> Filtered interface </p>
-      <p class="section-text-blue">  <em> by medium and author</em> </p>
-    </div>
-    </div>
-
-    <div class="m"> </div>  
-
-    <div class="horizontal-container">
-        <div class="horizontal-box">
-          <img class="imageItem-02" alt="Item 3" src="/images/sorted.png"/>
-        </div>
-        <div class="horizontal-box">
-          <img class="imageItem-02" alt="Item 4" src="/images/filtered-sorted.png"/>
-        </div>
-        </div>
-  
-    <div class="horizontal-container-02">
-        <div class="horizontal-box-02">
-          <p class="section-text"> Sorted interface</p>
-          <p class="section-text-blue">  <em> by size: Small to large</em> </p>
-        </div>
-        <div class="horizontal-box-02">
-          <p class="section-text"> Filtered and sorted interface</p>
-          <p class="section-text-blue">  <em> filtered by medium and author, sorted by size </em> </p>
-        </div>
-        </div>
-
-        <div class="m"> </div>  
-
-        <div class="horizontal-container">
-            <div class="horizontal-box">
-              <img class="imageItem-02" alt="Item 5" src="/images/no-results.png"/>
-            </div>
-            <div class="horizontal-box">
-            </div>
-            </div>
-      
-        <div class="horizontal-container-02">
-            <div class="horizontal-box-02">
-              <p class="section-text"> Filtered and found no results </p>
-            </div>
-            <div class="horizontal-box-02">
-            </div>
-            </div>
-
-<div class="f"> </div>  
-
-<p class="section-subtitle"> <strong>Notifications: </strong> </p>
-<div class="m"> </div>  
-
-<div class="horizontal-container">
-  <div class="horizontal-box">
-    <img class="imageItem-02" alt="Item 1" src="/images/add-to-wishlist.png"/>
-    </div>
-    <div class="horizontal-box">
-      <img class="imageItem-02" alt="Item 2" src="/images/add-to-cart.png"/>
-    </div>
-    </div>
-
-<div class="horizontal-container-02">
-  <div class="horizontal-box-02">
-      <p class="section-text"> Added to Wishlist </p>
-    </div>
-    <div class="horizontal-box-02">
-      <p class="section-text"> Added to Cart </p>
-    </div>
-    </div>
-
-    <div class="m"> </div>  
-
-    <div class="horizontal-container">
-        <div class="horizontal-box">
-          <img class="imageItem-02" alt="Item 3" src="/images/remove-from-cart.png"/>
-        </div>
-        <div class="horizontal-box">
-          <img class="imageItem-02" alt="Item 4" src="/images/clear-all.png"/>
-        </div>
-        </div>
-  
-    <div class="horizontal-container-02">
-        <div class="horizontal-box-02">
-          <p class="section-text"> Removed from Cart</p>
-        </div>
-        <div class="horizontal-box-02">
-          <p class="section-text"> Removed all filters and sorting</p>
-        </div>
-        </div>
-
-<div class="f"> </div>  
+<p class="solution-subtitle"> Enhancing Art Discovery: "An online art platform to discover, sort and filter artworks” <a href="https://dev-sand-tau.vercel.app" class="link-text"> Explore App</a></p>
+<img src="/images/ArtPhase04.png" alt="Art Project Solution" style={{ width: '100%', height: 'auto', paddingTop: '5%', backgroundColor: '#e9e8e8', marginBottom: '-5px' }} />
+<section class="details-four">
+<div class="info-block-four">
+<p><strong> Key features </strong> </p>
+<div class="info-line"></div>
+<p class="small-text"> •  <strong>Dynamic filtering </strong> by medium, material, and author.</p>
+<p class="small-text"> • <strong>Sorting functionalities  </strong>by price and size.</p>
+<p class="small-text"> • <strong>Wishlist and Cart management </strong>for user preferences. </p>
+<p class="small-text"> • <strong>Feedback notifications. </strong> </p>
+</div>
+<div class="info-block-four">
+<p> <strong> Goals Adchieved </strong> </p> 
+<div class="info-line"></div>
+<p class="small-text"> • Established an <strong>efficient and aesthetically pleasing</strong> platform that enhances user interaction and satisfaction.</p>
+<p class="small-text"> • Implemented comprehensive features that <strong>surpass competitor offerings</strong> in terms of usability and functionality.</p>
+</div>
+<div class="info-block-four">
+<p> <strong>Impacts and Benefits </strong> </p> 
+<div class="info-line"></div>
+<p class="small-text"> • Improved<strong> user engagement and satisfaction</strong> by facilitating easier access to desired artworks.</p>
+<p class="small-text"> • Enhanced <strong>operational efficiency </strong>through an intuitive interface that reduces search and transaction times.</p>
+</div>
+<div class="info-block-four">
+<p> <strong>Future Opportunities </strong> </p> 
+<div class="info-line"></div>
+<p class="small-text"> • Complete <strong> development </strong> of the marketplace. </p>
+<p class="small-text"> • User feature  <strong> personalization </strong></p>
+<p class="small-text"> • <strong>Recommendations </strong> based on user’s previous interaction. </p>
+</div>
+</section>
 
 <div class="f"> </div>  
 <div class="section-line"> </div> 
 <div class="f"> </div>  
-<p class="section-title"> Part 4: <strong> Links </strong> </p>
+<p class="section-title"> Part 3: <strong> Key learnings </strong> </p>
 <div class="title-line"> </div> 
-<div class="vertical-container"> 
+<section class="details">
+<div class="info-block">
+<p><strong> 01. </strong> </p>
+<div class="info-line"></div>
+<p> The need for a <strong>balanced approach </strong> to design and functionality to ensure both aesthetic appeal and practical usability. </p>
+</div>
+<div class="info-block">
+<p><strong> 02. </strong> </p>
+<div class="info-line"></div>
+<p> <strong>Benchmarking </strong>against competitors can inspire unique and innovative features.</p>
+</div>
+<div class="info-block">
+<p> <strong> 03. </strong> </p> 
+<div class="info-line"></div>
+<p> <strong>Continuous refinement </strong>through iterative prototyping ensures alignment with user feedback and client expectations. </p>
+</div>
+<div class="info-block">
+<p> <strong>04.</strong> </p> 
+<div class="info-line"></div>
+<p> Adaptability in design and implementation is key to overcoming challenges and provide <strong>flexibility.</strong> </p>
+</div>
+<div class="info-block">
+<p> <strong>05.</strong> </p> 
+<div class="info-line"></div>
+<p> Features must make sense <strong>individually and integrated </strong>with other complementary features </p>
+</div>
+</section>
+
+
+<div class="f"> </div>  
+<div class="section-line"> </div> 
+<div class="f"> </div>  
+<p class="section-title"> Part 4: <strong> Additional information </strong> </p>
+<div class="title-line"> </div> 
+<section class="details-plus">
+<div class="info-block-plus">
 <a href="https://github.com/patriciamontalvoh/dev" class="link-text">Github repository</a>
-<a href="https://dev-sand-tau.vercel.app" class="link-text">Vercel</a>
-</div> 
+</div>
+<div class="info-block-plus">
+<a href="https://dev-sand-tau.vercel.app" class="link-text">Explore App</a>
+</div>
+<div class="info-block-plus">
+<a href="https://patriciamontalvoh.github.io/development-handin-webpage/" class="link-text">Full project details</a>
+</div>
+    </section>
 
 <div class="w"> </div>  
 
 <div class="footer"> 
-<p class="section-text-white"> Development assignment CSCI1300 <strong> Patricia Montalvo Hernandez </strong> </p>
+<p class="section-text-white"> Iterative design assignment CSCI1300 <strong> Patricia Montalvo Hernandez </strong> </p>
 </div>  
-    </div>
+
+</div>
+
   );
 }
 
-export default DevProjectDetails;
+export default ZestProjectDetails;
+

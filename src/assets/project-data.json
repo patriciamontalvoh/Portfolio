@@ -4,7 +4,7 @@
   "number": "PROJECT 01",
   "title": "Zest Cart Upgrade",
   "year": "2024",
-  "mainImage":"images/ZestS.png", 
+  "mainImage":"images/Zestito.png", 
   "description": "Enhancing e-commerce with advanced shopping cart capabilities for corporate gifting."
 },
   {
@@ -20,16 +20,16 @@
     "number": "PROJECT 03",
     "title": "Responsive redesign",  
     "year": "2024", 
-    "mainImage":"images/Resp.png", 
+    "mainImage":"images/ReDeB.png", 
     "description": "Redesign of the Rhode Island Department of Health Home page: Streamlining Public Health Information Access."
   },
   {
     "id": 4, 
     "number": "PROJECT 04",
-    "title": "Tantum",
+    "title": "Talo",
     "year": "2023",
-    "mainImage":"images/TantumT.png", 
-    "description": "Reconnecting in a distance world through digital and phisical interaction."
+    "mainImage":"images/Talito.png", 
+    "description": "A service design to promote a reimagined community"
   },
   {
     "id": 5, 
@@ -44,7 +44,7 @@
     "number": "PROJECT 06",
     "title": "CU",
     "year": "2021", 
-    "mainImage":"images/Cu.png", 
+    "mainImage":"images/Cu02.png", 
     "description": "Innovative mobility solution for urban environments and young generations."
   }
 ]
