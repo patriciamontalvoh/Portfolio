@@ -4,34 +4,41 @@ import { NavLink } from 'react-router-dom';
 
 const sentences = [
 "Selected and analyzed three different online art marketplaces, paying close attention to their aggregator functions, their filtering functions, their sorting functions, and their overall design.", 
-"Utilized design thinking and user-centered design methodologies to create initial design layout and identify key needed functionalities. ",
+"Utilized design thinking and user-centered design methodologies to create initial design layout and identify key needed functionalities.",
+"Deepened into the layout and design using Figma, paying attention to the previously defined functionalities, design and structuring. ",
 "Developed the frontend using React, paying attention to the previously defined functionalities, design and structuring. "
-  ];
+];
   
   const images = [
     "/images/ArtPhase01.png",
     "/images/ArtPhase02.png",
     "/images/ArtPhase03.png",
+    "/images/ArtPhase04.png",
   ];
 
   const buttonDescription = [
     "Competitive Analysis",
-    "Functionality assesment", 
+    "Functionality assesment",
+    "Design and layout ideation", 
     "App development and implementation",
   ];
 
   const imageFooter = [
     "Analyzing competitors",
     "Final features selection",
+    "Design process",
     "Final app development",
   ];
 
-  const buttonLabels = ['PHASE 01', 'PHASE 02', 'PHASE 03']; 
+  const buttonLabels = ['PHASE 01', 'PHASE 02', 'PHASE 03', 'PHASE 04']; 
 
 
-function ZestProjectDetails() {
-    const [activeIndex, setActiveIndex] = useState(0); 
+function DevProjectDetails() {
+    const [activeIndex, setActiveIndex] = useState(-1); 
   
+    const toggleContent = (index) => {
+      setActiveIndex(prevIndex => prevIndex === index ? -1 : index);
+  };
 
     const handleKeyDown = (event) => {
         if (event.key === "ArrowRight") {
@@ -126,18 +133,26 @@ function ZestProjectDetails() {
 <div className="container">
 <div className="buttonContainer">
 {buttonLabels.map((label,index) => (
-          <button key={index} className={`choice-button ${index === activeIndex ? 'active' : ''}`} onClick={() => displayContent(index)}>
-              <p>  <strong> {label} </strong></p>
+ <button key={index} className={`choice-button ${index === activeIndex ? 'active' : ''}`}
+              onClick={() => toggleContent(index)}>
+                <p>  <strong> {label} </strong></p>
             <div class="info-line"></div>
             <p class="button-description">{buttonDescription[index]}</p>
           </button>
         ))}
         </div>
-      {activeIndex !== -1 && (<>
-          <p id="textDisplay" class="button-description-02">{sentences[activeIndex]}</p>
-          <img id="imageDisplay" src={images[activeIndex]} alt={`Display for Button ${activeIndex + 1}`} style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
+        {activeIndex === -1 ? (
+                    <div>
+                        <p class="section-text-blue"><em>Please <strong>select a phase </strong>to see detailed information.</em></p>
+                        <img src="/images/ArtesitoProcess.png" alt="Generic view" style={{ width: '100%', height: 'auto' }} />
+                        <p id="textDisplay" class="button-description-03">Process overview</p>
+                    </div>
+                ) : (
+                  <div>
+                <p id="textDisplay" class="button-description-02"> <strong>Overview:</strong> {sentences[activeIndex]}</p>
+          <img id="imageDisplay" src={images[activeIndex]} alt={`Display for Button ${activeIndex + 1}`} style={{ width: '100%', height: 'auto', marginTop: '-10px', marginBottom: '10px' }} />
           <p id="textDisplay" class="button-description-03">{imageFooter[activeIndex]}</p>
-        </>
+          </div>
       )}
     </div>
 
@@ -149,7 +164,7 @@ function ZestProjectDetails() {
 <p class="section-title"> Part 2: <strong> The solution in more depth</strong> </p>
 <div class="title-line"> </div> 
 <p class="solution-subtitle"> Enhancing Art Discovery: "An online art platform to discover, sort and filter artworks” <a href="https://dev-sand-tau.vercel.app" class="link-text"> Explore App</a></p>
-<img src="/images/ArtPhase04.png" alt="Art Project Solution" style={{ width: '100%', height: 'auto', paddingTop: '5%', backgroundColor: '#e9e8e8', marginBottom: '-5px' }} />
+<img src="/images/ArtMain.png" alt="Art Project Solution" style={{ width: '100%', height: 'auto', paddingTop: '5%', backgroundColor: '#e9e8e8', marginBottom: '-5px' }} />
 <section class="details-four">
 <div class="info-block-four">
 <p><strong> Key features </strong> </p>
@@ -242,5 +257,5 @@ function ZestProjectDetails() {
   );
 }
 
-export default ZestProjectDetails;
+export default DevProjectDetails;
 

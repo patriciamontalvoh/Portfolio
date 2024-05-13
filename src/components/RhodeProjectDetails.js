@@ -37,9 +37,12 @@ const sentences = [
   const buttonLabels = ['PHASE 01', 'PHASE 02', 'PHASE 03', 'PHASE 04', 'PHASE 05']; 
 
 
-function ZestProjectDetails() {
-    const [activeIndex, setActiveIndex] = useState(0); 
+function RhodeProjectDetails() {
+    const [activeIndex, setActiveIndex] = useState(-1); 
   
+    const toggleContent = (index) => {
+      setActiveIndex(prevIndex => prevIndex === index ? -1 : index);
+  };
 
     const handleKeyDown = (event) => {
         if (event.key === "ArrowRight") {
@@ -135,18 +138,26 @@ function ZestProjectDetails() {
 <div className="container">
 <div className="buttonContainer">
 {buttonLabels.map((label,index) => (
-          <button key={index} className={`choice-button ${index === activeIndex ? 'active' : ''}`} onClick={() => displayContent(index)}>
-              <p>  <strong> {label} </strong></p>
+  <button key={index} className={`choice-button ${index === activeIndex ? 'active' : ''}`}
+              onClick={() => toggleContent(index)}>
+            <p>  <strong> {label} </strong></p>
             <div class="info-line"></div>
             <p class="button-description">{buttonDescription[index]}</p>
           </button>
         ))}
         </div>
-      {activeIndex !== -1 && (<>
-          <p id="textDisplay" class="button-description-02">{sentences[activeIndex]}</p>
-          <img id="imageDisplay" src={images[activeIndex]} alt={`Display for Button ${activeIndex + 1}`} style={{ width: '100%', height: 'auto', marginBottom: '20px' }} />
+        {activeIndex === -1 ? (
+                    <div>
+                        <p class="section-text-blue"><em>Please <strong>select a phase </strong>to see detailed information.</em></p>
+                        <img src="/images/ReDeProcess.png" alt="Generic view" style={{ width: '100%', height: 'auto' }} />
+                        <p id="textDisplay" class="button-description-03">Process overview</p>
+                    </div>
+                ) : (
+                  <div>
+                <p id="textDisplay" class="button-description-02"> <strong>Overview:</strong> {sentences[activeIndex]}</p>
+          <img id="imageDisplay" src={images[activeIndex]} alt={`Display for Button ${activeIndex + 1}`} style={{ width: '100%', height: 'auto', marginTop: '-10px', marginBottom: '10px' }} />
           <p id="textDisplay" class="button-description-03">{imageFooter[activeIndex]}</p>
-        </>
+          </div>
       )}
     </div>
 
@@ -157,7 +168,7 @@ function ZestProjectDetails() {
 
 <p class="section-title"> Part 2: <strong> The solution in more depth</strong> </p>
 <div class="title-line"> </div> 
-<p class="solution-subtitle"> Enhancing Information access and cross-device compatibility: "Rhode Island Department of Health: Streamlining Public Health Information.”</p>
+<p class="solution-subtitle"> Enhancing Information access and cross-device compatibility: "Rhode Island Department of Health: Streamlining Public Health Information.” <a href="https://patriciamontalvoh.github.io/Responsive-redesign-/" class="link-text"> Explore the Redesigned Interface</a></p>
 <img src="/images/ReDee.png" alt=" Rhode Island Department of Health Redesign Solution" style={{ width: '100%', height: 'auto', paddingTop: '5%', backgroundColor: '#e9e8e8', marginBottom: '-5px' }} />
 <section class="details-four">
 <div class="info-block-four">
@@ -250,5 +261,5 @@ function ZestProjectDetails() {
   );
 }
 
-export default ZestProjectDetails;
+export default RhodeProjectDetails;
 

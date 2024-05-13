@@ -1,7 +1,6 @@
 import React from 'react';
 import './ProjectDetails.css';
-
-
+import { NavLink } from 'react-router-dom'; 
 
 function Home() {
   return (
@@ -13,6 +12,7 @@ function Home() {
       <div class="title-line"> </div>
       <div class="description"> <strong>UX/UI Designer </strong> Specializing in Digital Transformation and Interface Enhancement: </div>
       <div class="description-italic"><strong>"Creating Intuitive, Inclusive and Impactful Digital Experiences."</strong> </div>
+      <NavLink to="/projects" className="link-text">Explore Projects</NavLink>
 </div>
   );
 }

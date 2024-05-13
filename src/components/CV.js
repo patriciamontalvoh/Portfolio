@@ -1,6 +1,5 @@
 import React from 'react';
 import './ProjectDetails.css';
-import './ProjectDetails.css';
 
 
 function CV() {

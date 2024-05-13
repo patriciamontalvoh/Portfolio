@@ -30,7 +30,6 @@ body {
   padding: 1% 1%;
   z-index: 999; 
   border-bottom: .15rem solid #000000;
-
 }
 
 .document{
@@ -39,23 +38,22 @@ body {
 
 .navbar a {
   padding: 10px;
-  margin-right: 20px; /* Adjust the spacing between links as needed */
+  margin-right: 20px; 
   text-decoration: none;
   color: #333;
 }
 
 .navbar a.active {
   font-weight: bold;
-  color: blue; /* Change to your preferred color */
+  color: blue; 
 }
 
-/* Custom cursor styles */
-body {
-  cursor:default;
-}
+
+.navbar a:hover {
+  color: blue;}
+
 
 /* Project */
-/* Add or adjust styles as needed */
 
 .projects-container {
   display: flex;
@@ -81,6 +79,7 @@ font-weight: 100;
 
  .description-italic{
   margin-top: 5%;
+  margin-bottom: 10%;
   font-size: 3rem;
   font-weight: 100;
   font-style: italic;
